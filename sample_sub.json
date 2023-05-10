@@ -1,0 +1,24 @@
+{
+  "object": "billing_subscription",
+  "has_payment_method": false,
+  "canceled": false,
+  "canceled_at": null,
+  "delinquent": null,
+  "access_until": 1685577600,
+  "soft_limit": 240000,
+  "hard_limit": 300000,
+  "system_hard_limit": 300000,
+  "soft_limit_usd": 14.4,
+  "hard_limit_usd": 18.0,
+  "system_hard_limit_usd": 18.0,
+  "plan": {
+    "title": "Explore",
+    "id": "free"
+  },
+  "account_name": "1 1",
+  "po_number": null,
+  "billing_email": null,
+  "tax_ids": null,
+  "billing_address": null,
+  "business_address": null
+}
