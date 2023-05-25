@@ -18,14 +18,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QCheckBox, QDoubleSpinBox, QGridLayout,
     QGroupBox, QHeaderView, QLabel, QLineEdit,
     QMainWindow, QPlainTextEdit, QProgressBar, QPushButton,
-    QSizePolicy, QSpacerItem, QSpinBox, QTableWidget,
-    QTableWidgetItem, QWidget)
+    QSizePolicy, QSpinBox, QTableWidget, QTableWidgetItem,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(469, 671)
+        MainWindow.resize(469, 638)
         MainWindow.setAcceptDrops(True)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -37,7 +37,7 @@ class Ui_MainWindow(object):
         self._4.setObjectName(u"_4")
         self.stopBtn = QPushButton(self.queryGroupBox)
         self.stopBtn.setObjectName(u"stopBtn")
-        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.stopBtn.sizePolicy().hasHeightForWidth())
@@ -138,41 +138,48 @@ class Ui_MainWindow(object):
         self.settingsGroupBox.setSizePolicy(sizePolicy2)
         self._5 = QGridLayout(self.settingsGroupBox)
         self._5.setObjectName(u"_5")
-        self.delaySpinBox = QDoubleSpinBox(self.settingsGroupBox)
-        self.delaySpinBox.setObjectName(u"delaySpinBox")
+        self.maxConnPerProxy = QSpinBox(self.settingsGroupBox)
+        self.maxConnPerProxy.setObjectName(u"maxConnPerProxy")
+        self.maxConnPerProxy.setMinimum(1)
+        self.maxConnPerProxy.setValue(1)
 
-        self._5.addWidget(self.delaySpinBox, 7, 2, 1, 2)
+        self._5.addWidget(self.maxConnPerProxy, 3, 3, 1, 1)
 
-        self.discardConfigBtn = QPushButton(self.settingsGroupBox)
-        self.discardConfigBtn.setObjectName(u"discardConfigBtn")
+        self.label_2 = QLabel(self.settingsGroupBox)
+        self.label_2.setObjectName(u"label_2")
 
-        self._5.addWidget(self.discardConfigBtn, 9, 1, 1, 2)
+        self._5.addWidget(self.label_2, 1, 0, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.setConfigBtn = QPushButton(self.settingsGroupBox)
+        self.setConfigBtn.setObjectName(u"setConfigBtn")
 
-        self._5.addItem(self.verticalSpacer, 5, 0, 1, 4)
+        self._5.addWidget(self.setConfigBtn, 6, 0, 1, 1)
 
-        self.label_4 = QLabel(self.settingsGroupBox)
-        self.label_4.setObjectName(u"label_4")
+        self.label = QLabel(self.settingsGroupBox)
+        self.label.setObjectName(u"label")
 
-        self._5.addWidget(self.label_4, 7, 0, 1, 2)
+        self._5.addWidget(self.label, 0, 0, 1, 1)
+
+        self.label_5 = QLabel(self.settingsGroupBox)
+        self.label_5.setObjectName(u"label_5")
+
+        self._5.addWidget(self.label_5, 3, 0, 1, 2)
 
         self.threadCountSpinBox = QSpinBox(self.settingsGroupBox)
         self.threadCountSpinBox.setObjectName(u"threadCountSpinBox")
         self.threadCountSpinBox.setMinimum(1)
 
-        self._5.addWidget(self.threadCountSpinBox, 6, 3, 1, 1)
+        self._5.addWidget(self.threadCountSpinBox, 4, 3, 1, 1)
 
-        self.threadCountFromProxiesCheckBox = QCheckBox(self.settingsGroupBox)
-        self.threadCountFromProxiesCheckBox.setObjectName(u"threadCountFromProxiesCheckBox")
-        self.threadCountFromProxiesCheckBox.setChecked(True)
+        self.label_4 = QLabel(self.settingsGroupBox)
+        self.label_4.setObjectName(u"label_4")
 
-        self._5.addWidget(self.threadCountFromProxiesCheckBox, 6, 1, 1, 2)
+        self._5.addWidget(self.label_4, 5, 0, 1, 2)
 
-        self.setConfigBtn = QPushButton(self.settingsGroupBox)
-        self.setConfigBtn.setObjectName(u"setConfigBtn")
+        self.discardConfigBtn = QPushButton(self.settingsGroupBox)
+        self.discardConfigBtn.setObjectName(u"discardConfigBtn")
 
-        self._5.addWidget(self.setConfigBtn, 9, 0, 1, 1)
+        self._5.addWidget(self.discardConfigBtn, 6, 1, 1, 2)
 
         self.proxiesTextEdit = QPlainTextEdit(self.settingsGroupBox)
         self.proxiesTextEdit.setObjectName(u"proxiesTextEdit")
@@ -182,53 +189,34 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.proxiesTextEdit.sizePolicy().hasHeightForWidth())
         self.proxiesTextEdit.setSizePolicy(sizePolicy3)
 
-        self._5.addWidget(self.proxiesTextEdit, 3, 0, 1, 4)
+        self._5.addWidget(self.proxiesTextEdit, 2, 0, 1, 4)
 
-        self.label_3 = QLabel(self.settingsGroupBox)
-        self.label_3.setObjectName(u"label_3")
+        self.delaySpinBox = QDoubleSpinBox(self.settingsGroupBox)
+        self.delaySpinBox.setObjectName(u"delaySpinBox")
 
-        self._5.addWidget(self.label_3, 6, 0, 1, 1)
-
-        self.label = QLabel(self.settingsGroupBox)
-        self.label.setObjectName(u"label")
-
-        self._5.addWidget(self.label, 0, 0, 1, 1)
-
-        self.label_2 = QLabel(self.settingsGroupBox)
-        self.label_2.setObjectName(u"label_2")
-
-        self._5.addWidget(self.label_2, 2, 0, 1, 1)
-
-        self.useSystemProxyChkBox = QCheckBox(self.settingsGroupBox)
-        self.useSystemProxyChkBox.setObjectName(u"useSystemProxyChkBox")
-        self.useSystemProxyChkBox.setChecked(True)
-
-        self._5.addWidget(self.useSystemProxyChkBox, 2, 1, 1, 3)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self._5.addItem(self.verticalSpacer_2, 1, 0, 1, 4)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self._5.addItem(self.verticalSpacer_3, 8, 0, 1, 4)
+        self._5.addWidget(self.delaySpinBox, 5, 2, 1, 2)
 
         self.apiEndpointLineEdit = QLineEdit(self.settingsGroupBox)
         self.apiEndpointLineEdit.setObjectName(u"apiEndpointLineEdit")
 
         self._5.addWidget(self.apiEndpointLineEdit, 0, 1, 1, 3)
 
-        self.label_5 = QLabel(self.settingsGroupBox)
-        self.label_5.setObjectName(u"label_5")
+        self.label_3 = QLabel(self.settingsGroupBox)
+        self.label_3.setObjectName(u"label_3")
 
-        self._5.addWidget(self.label_5, 4, 0, 1, 2)
+        self._5.addWidget(self.label_3, 4, 0, 1, 1)
 
-        self.maxConnPerProxy = QSpinBox(self.settingsGroupBox)
-        self.maxConnPerProxy.setObjectName(u"maxConnPerProxy")
-        self.maxConnPerProxy.setMinimum(1)
-        self.maxConnPerProxy.setValue(1)
+        self.threadCountFromProxiesCheckBox = QCheckBox(self.settingsGroupBox)
+        self.threadCountFromProxiesCheckBox.setObjectName(u"threadCountFromProxiesCheckBox")
+        self.threadCountFromProxiesCheckBox.setChecked(True)
 
-        self._5.addWidget(self.maxConnPerProxy, 4, 3, 1, 1)
+        self._5.addWidget(self.threadCountFromProxiesCheckBox, 4, 1, 1, 2)
+
+        self.useSystemProxyChkBox = QCheckBox(self.settingsGroupBox)
+        self.useSystemProxyChkBox.setObjectName(u"useSystemProxyChkBox")
+        self.useSystemProxyChkBox.setChecked(True)
+
+        self._5.addWidget(self.useSystemProxyChkBox, 1, 1, 1, 3)
 
 
         self.gridLayout.addWidget(self.settingsGroupBox, 0, 1, 2, 1)
@@ -274,20 +262,20 @@ class Ui_MainWindow(object):
         self.importFileBtn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165\u6587\u4ef6", None))
         self.exportFileBtn.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u51fa\uff08\u8fd8\u6ca1\u505a\uff09", None))
         self.settingsGroupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u8bbe\u7f6e", None))
-        self.discardConfigBtn.setText(QCoreApplication.translate("MainWindow", u"\u4e22\u5f03", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u7ebf\u7a0b\u7b49\u5f85\u65f6\u95f4\uff08\u79d2\uff09\uff1a", None))
-        self.threadCountFromProxiesCheckBox.setText(QCoreApplication.translate("MainWindow", u"\u4e0e\u4ee3\u7406\u6570\u76f8\u540c", None))
-        self.setConfigBtn.setText(QCoreApplication.translate("MainWindow", u"\u5e94\u7528", None))
-#if QT_CONFIG(tooltip)
-        self.proxiesTextEdit.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u683c\u5f0f\uff1a\u534f\u8bae://\u7528\u6237\u540d:\u5bc6\u7801@\u5730\u5740\uff0c\u4ee5\u7a7a\u683c\u3001\u6362\u884c\u6216\u5236\u8868\u7b26\u5206\u9694</p><p>\u5982\u679c\u4e3a\u7a7a\u5219\u4e0d\u4f7f\u7528\u4ee3\u7406</p><p>\u4f8b\uff1a</p><p>http://127.0.0.1:7890</p><p>https://username:password@example.com</p><p>socks5://localhost:8080</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u7ebf\u7a0b\u6570\uff1a", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"API\u7aef\u70b9\uff1a", None))
 #if QT_CONFIG(tooltip)
         self.label_2.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u683c\u5f0f\uff1a\u534f\u8bae://\u7528\u6237\u540d:\u5bc6\u7801@\u5730\u5740\uff0c\u4ee5\u7a7a\u683c\u3001\u6362\u884c\u6216\u5236\u8868\u7b26\u5206\u9694</p><p>\u5982\u679c\u4e3a\u7a7a\u5219\u4e0d\u4f7f\u7528\u4ee3\u7406</p><p>\u4f8b\uff1a</p><p>http://127.0.0.1:7890</p><p>https://username:password@example.com</p><p>socks5://localhost:8080</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u4ee3\u7406\uff1a", None))
-        self.useSystemProxyChkBox.setText(QCoreApplication.translate("MainWindow", u"\u4f7f\u7528\u7cfb\u7edf/\u73af\u5883\u53d8\u91cf\u4ee3\u7406", None))
+        self.setConfigBtn.setText(QCoreApplication.translate("MainWindow", u"\u5e94\u7528", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"API\u7aef\u70b9\uff1a", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u6bcf\u4e2a\u4ee3\u7406\u7684\u6700\u5927\u8fde\u63a5\u6570\uff1a", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u7ebf\u7a0b\u7b49\u5f85\u65f6\u95f4\uff08\u79d2\uff09\uff1a", None))
+        self.discardConfigBtn.setText(QCoreApplication.translate("MainWindow", u"\u4e22\u5f03", None))
+#if QT_CONFIG(tooltip)
+        self.proxiesTextEdit.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u683c\u5f0f\uff1a\u534f\u8bae://\u7528\u6237\u540d:\u5bc6\u7801@\u5730\u5740\uff0c\u4ee5\u7a7a\u683c\u3001\u6362\u884c\u6216\u5236\u8868\u7b26\u5206\u9694</p><p>\u5982\u679c\u4e3a\u7a7a\u5219\u4e0d\u4f7f\u7528\u4ee3\u7406</p><p>\u4f8b\uff1a</p><p>http://127.0.0.1:7890</p><p>https://username:password@example.com</p><p>socks5://localhost:8080</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u7ebf\u7a0b\u6570\uff1a", None))
+        self.threadCountFromProxiesCheckBox.setText(QCoreApplication.translate("MainWindow", u"\u4e0e\u4ee3\u7406\u6570\u76f8\u540c", None))
+        self.useSystemProxyChkBox.setText(QCoreApplication.translate("MainWindow", u"\u4f7f\u7528\u7cfb\u7edf/\u73af\u5883\u53d8\u91cf\u4ee3\u7406", None))
     # retranslateUi
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>469</width>
-    <height>671</height>
+    <height>638</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -27,7 +27,7 @@
        <item row="2" column="0" colspan="2">
         <widget class="QPushButton" name="stopBtn">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -40,7 +40,7 @@
        <item row="0" column="0" colspan="2">
         <widget class="QPushButton" name="startBtn">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -156,7 +156,7 @@
        <item row="0" column="0">
         <widget class="QPushButton" name="importFileBtn">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -169,7 +169,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="exportFileBtn">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -194,61 +194,69 @@
        <string>设置</string>
       </property>
       <layout class="QGridLayout" name="_5">
-       <item row="7" column="2" colspan="2">
-        <widget class="QDoubleSpinBox" name="delaySpinBox"/>
-       </item>
-       <item row="9" column="1" colspan="2">
-        <widget class="QPushButton" name="discardConfigBtn">
-         <property name="text">
-          <string>丢弃</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="4">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>5</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="7" column="0" colspan="2">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>线程等待时间（秒）：</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="3">
-        <widget class="QSpinBox" name="threadCountSpinBox">
+       <item row="3" column="3">
+        <widget class="QSpinBox" name="maxConnPerProxy">
          <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="value">
           <number>1</number>
          </property>
         </widget>
        </item>
-       <item row="6" column="1" colspan="2">
-        <widget class="QCheckBox" name="threadCountFromProxiesCheckBox">
-         <property name="text">
-          <string>与代理数相同</string>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;格式：协议://用户名:密码@地址，以空格、换行或制表符分隔&lt;/p&gt;&lt;p&gt;如果为空则不使用代理&lt;/p&gt;&lt;p&gt;例：&lt;/p&gt;&lt;p&gt;http://127.0.0.1:7890&lt;/p&gt;&lt;p&gt;https://username:password@example.com&lt;/p&gt;&lt;p&gt;socks5://localhost:8080&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
-         <property name="checked">
-          <bool>true</bool>
+         <property name="text">
+          <string>代理：</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="0">
+       <item row="6" column="0">
         <widget class="QPushButton" name="setConfigBtn">
          <property name="text">
           <string>应用</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0" colspan="4">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>API端点：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>每个代理的最大连接数：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QSpinBox" name="threadCountSpinBox">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>线程等待时间（秒）：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1" colspan="2">
+        <widget class="QPushButton" name="discardConfigBtn">
+         <property name="text">
+          <string>丢弃</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="4">
         <widget class="QPlainTextEdit" name="proxiesTextEdit">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -261,83 +269,36 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="0">
+       <item row="5" column="2" colspan="2">
+        <widget class="QDoubleSpinBox" name="delaySpinBox"/>
+       </item>
+       <item row="0" column="1" colspan="3">
+        <widget class="QLineEdit" name="apiEndpointLineEdit"/>
+       </item>
+       <item row="4" column="0">
         <widget class="QLabel" name="label_3">
          <property name="text">
           <string>线程数：</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label">
+       <item row="4" column="1" colspan="2">
+        <widget class="QCheckBox" name="threadCountFromProxiesCheckBox">
          <property name="text">
-          <string>API端点：</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;格式：协议://用户名:密码@地址，以空格、换行或制表符分隔&lt;/p&gt;&lt;p&gt;如果为空则不使用代理&lt;/p&gt;&lt;p&gt;例：&lt;/p&gt;&lt;p&gt;http://127.0.0.1:7890&lt;/p&gt;&lt;p&gt;https://username:password@example.com&lt;/p&gt;&lt;p&gt;socks5://localhost:8080&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>代理：</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="3">
-        <widget class="QCheckBox" name="useSystemProxyChkBox">
-         <property name="text">
-          <string>使用系统/环境变量代理</string>
+          <string>与代理数相同</string>
          </property>
          <property name="checked">
           <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="4">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>5</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="8" column="0" colspan="4">
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>5</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="1" colspan="3">
-        <widget class="QLineEdit" name="apiEndpointLineEdit"/>
-       </item>
-       <item row="4" column="0" colspan="2">
-        <widget class="QLabel" name="label_5">
+       <item row="1" column="1" colspan="3">
+        <widget class="QCheckBox" name="useSystemProxyChkBox">
          <property name="text">
-          <string>每个代理的最大连接数：</string>
+          <string>使用系统/环境变量代理</string>
          </property>
-        </widget>
-       </item>
-       <item row="4" column="3">
-        <widget class="QSpinBox" name="maxConnPerProxy">
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="value">
-          <number>1</number>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
